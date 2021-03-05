@@ -1,0 +1,22 @@
+{% macro status_label(value) %}
+    {% if value|int == 1 %}
+        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+            Activo
+        </span>
+    {% elif value|int == 0 %}
+        <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+            Inactivo
+        </span>
+    {% else %}
+        -
+    {% endif %}
+{% endmacro %}
+
+
+{% macro datetime(value) %}
+    {% if value %}
+        {{ value.strftime('%d/%m/%Y | %I:%M %p') }}
+    {% else %}
+        -
+    {% endif %}
+{% endmacro %}

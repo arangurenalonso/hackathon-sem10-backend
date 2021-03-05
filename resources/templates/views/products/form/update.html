@@ -1,0 +1,60 @@
+{% extends 'layouts/admin.html' %}
+{% from 'utils/_formhelpers.html' import render_field %}
+{% from 'utils/_messages.html' import flash_messages %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div class="container px-6 mx-auto grid">
+        <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            {{ title }}
+        </h1>
+        <form action="" method="post" enctype="multipart/form-data"
+            class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            {{ form.hidden_tag() }}
+            <label class="block mt-4 text-sm">
+                {{ render_field(form.name,
+                    class_="block w-full mt-1 text-sm dark:border-gray-600 
+                    dark:bg-gray-700 focus:border-purple-400 focus:outline-none 
+                    focus:shadow-outline-purple dark:text-gray-300 
+                    dark:focus:shadow-outline-gray form-input") }}
+            </label>
+
+            <label class="block mt-4 text-sm">
+                {{ render_field(form.price,
+                    class_="block w-full mt-1 text-sm dark:border-gray-600 
+                    dark:bg-gray-700 focus:border-purple-400 focus:outline-none 
+                    focus:shadow-outline-purple dark:text-gray-300 
+                    dark:focus:shadow-outline-gray form-input") }}
+            </label>
+
+            <label class="block mt-4 text-sm">
+                {{ render_field(form.stock,
+                    class_="block w-full mt-1 text-sm dark:border-gray-600 
+                    dark:bg-gray-700 focus:border-purple-400 focus:outline-none 
+                    focus:shadow-outline-purple dark:text-gray-300 
+                    dark:focus:shadow-outline-gray form-input") }}
+            </label>
+
+
+            <label class="block mt-4 text-sm">
+                {{ render_field(form.category_id,
+                    class_="block w-full mt-1 text-sm dark:border-gray-600 
+                    dark:bg-gray-700 focus:border-purple-400 focus:outline-none 
+                    focus:shadow-outline-purple dark:text-gray-300 
+                    dark:focus:shadow-outline-gray form-input") }}
+            </label>
+
+            {{ render_field(form.submit, 
+                    class_="block w-full px-4 py-2 mt-4 text-sm font-medium 
+                    leading-5 text-center text-white transition-colors 
+                    duration-150 bg-purple-600 border border-transparent 
+                    rounded-lg active:bg-purple-600 hover:bg-purple-700 
+                    focus:outline-none focus:shadow-outline-purple", 
+                    label=False) }}
+        </form>
+        <div class="w-full">
+            {{ flash_messages(messages) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% macro render_field(field, label=True) %}
+    {% if label %}
+        <span class="text-gray-700 dark:text-gray-400">{{ field.label }}</span>
+    {% endif %}
+    
+    {{ field(**kwargs)|safe }}
+    
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <span class="text-xs text-red-600 dark:text-red-400">{{ error }}</span>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
